@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description" content="「似是而非」速答挑戰 — True or False Myth Buster. 打破迷思，發現真相。" />
+  <title>似是而非 · Myth Buster</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Special+Elite&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="bg-layer" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <main class="app">
+    <!-- HOME -->
+    <section id="home" class="screen active">
+      <div class="card home-card">
+        <div class="badge">MYTH BUSTER</div>
+        <h1 class="title">似是而非</h1>
+        <p class="subtitle">速答挑戰 · True or False</p>
+        <div class="rule-box">
+          <p>陳述出現後，快速判斷 <strong>真</strong> 或 <strong>假</strong>。</p>
+          <p>成功識破迷思 → 再答進階四選一，最高本題 <strong>+20</strong> 分！</p>
+        </div>
+        <button id="btn-start" class="btn primary">開始挑戰</button>
+        <p class="meta">每題限時 · 手機友善 · 無需登入</p>
+      </div>
+    </section>
+
+    <!-- GAME -->
+    <section id="game" class="screen">
+      <div class="card game-card">
+        <header class="hud">
+          <div class="hud-item">
+            <span class="hud-label">分數</span>
+            <span id="score">0</span>
+          </div>
+          <div class="timer-wrap">
+            <div id="timer-ring" class="timer-ring">
+              <span id="timer">10</span>
+            </div>
+          </div>
+          <div class="hud-item">
+            <span class="hud-label">題目</span>
+            <span id="progress">1/10</span>
+          </div>
+        </header>
+
+        <div class="category" id="category">—</div>
+        <p class="statement" id="statement">載入中…</p>
+
+        <!-- Stage 1: True / False -->
+        <div id="stage-tf" class="stage">
+          <div class="tf-buttons">
+            <button id="btn-true" class="btn tf true">真 · True</button>
+            <button id="btn-false" class="btn tf false">假 · False</button>
+          </div>
+        </div>
+
+        <!-- Stage 2: Advanced 4-choice -->
+        <div id="stage-adv" class="stage hidden">
+          <p class="adv-prompt" id="adv-prompt"></p>
+          <div id="adv-options" class="adv-options"></div>
+        </div>
+
+        <!-- Feedback + Explanation -->
+        <div id="feedback" class="feedback hidden"></div>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section id="results" class="screen">
+      <div class="card results-card">
+        <div class="badge results-badge">CASE CLOSED</div>
+        <h2 class="results-title">挑戰結算</h2>
+        <div class="stats-grid">
+          <div class="stat">
+            <span class="stat-num" id="final-score">0</span>
+            <span class="stat-label">總分</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" id="final-acc">0%</span>
+            <span class="stat-label">準確率</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" id="final-time">0s</span>
+            <span class="stat-label">總耗時</span>
+          </div>
+        </div>
+        <p class="verdict" id="verdict"></p>
+        <button id="btn-again" class="btn primary">再來一局</button>
+        <button id="btn-home" class="btn ghost">返回主頁</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="questions.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
